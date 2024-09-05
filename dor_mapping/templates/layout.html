@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    {% if testing is true %}
+      <title>Test DOR PIN Request</title>
+    {% else %}
+      <title>DOR PIN Request</title>
+    {% endif %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" sizes="16x16">
+  </head>
+  <body>
+    <h1>
+      <img alt="City of Philadelphia Liberty Bell Logo" src="https://phl.maps.arcgis.com/sharing/rest/content/items/575dc4600b194f0da5da28bf90097695/data" style="height:30px;">
+      {% if g.testing == True %}  
+      <i>TEST VERSION - </i>Department of Records (DOR) PIN Request Application<i> - TEST VERSION</i>
+      {% else %}
+      Department of Records (DOR) PIN Request Application
+      {% endif %}
+    </h1>
+    <div id="content">{% block content %}{% endblock %}</div><br><br>
+    <div id="footer">
+      &copy; Copyright 2023 by City of Philadelphia Office of Innovation and Technology <a target="_blank" href="https://www.phila.gov/departments/office-of-innovation-and-technology/citygeo/">CityGeo Unit</a>.<br>
+      Application created by James Midkiff. Visual design by Donna Short.
+    </div>
+  </body>
+</html>

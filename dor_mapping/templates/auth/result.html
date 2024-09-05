@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>New PIN Generated</h2>
+<h3>Connected to SDE Named Version "{{ g.named_version }}"</h3>
+{% if error is not none %}   
+  <i style="color:rgb(229, 50, 19)">{{ error }}</i>
+{% endif %}
+<p>The following {{n}} record(s) have been assigned new PINs:</p>
+<table>
+  <tr>
+    {% for header in headers %}
+      {% if loop.index == 1 %} 
+        <th><em>{{header.name}}</em></th>
+      {% else %}
+        <th>{{header.name}}</th>
+      {% endif %}
+    {% endfor %}
+  </tr>
+  {% for result in results %}
+  <tr>
+    {% for item in result %}
+      {% if loop.first %} 
+        <td><strong>{{item}}</strong></td>
+      {% else %}
+        <td>{{item}}</td>
+      {% endif %}
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table><br><br>
+<form method="get">
+  <button type="submit" formaction="{{ url_for('auth.record') }}">Return to Dashboard</button>
+  <button type="submit" formaction="{{ url_for('auth.logout') }}">Logout</button>
+</form>
+{% endblock %}

@@ -1,0 +1,163 @@
+h1 {
+  background-color: #0377fc;
+  color: white;
+  padding: 20px;
+  font-size: 30px;
+}
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width:100%;
+}
+
+body {
+  min-width: fit-content
+}
+
+td, th {
+  border: 1px solid #888888;
+  text-align: left;
+  padding: 8px;
+  max-width: 300px;
+  word-wrap: break-word;
+}
+    
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+input[type=text], select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#addr_std {
+  width: 50%;
+}
+
+#mapreg {
+  width: 50%;
+}
+
+input[type=password], select {
+width: 25%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+select {
+  width: 30%;
+}
+
+input[type=submit] {
+  width: 12%;
+  background-color: #0377fc;
+  color: white;
+  padding: 14px 14px;
+  margin: 8px 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  }
+
+#record-button {
+  width: 15%
+}
+
+input[type=submit]:hover {
+  background-color: #036ffc;
+  }
+
+button[type=submit] {
+  width: 12%;
+  max-width: 300px;
+  background-color: #0377fc;
+  color: white;
+  padding: 14px 14px;
+  margin: 8px 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  }
+
+button[type=submit]:hover {
+  background-color: #036ffc;
+  }
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.scrollable-table-container {
+  width: auto; /* Adjust the width as per your requirement */
+  height: 300px; /* Adjust the height as per your requirement */
+  border: 1px solid #ccc; /* Add a border for visibility */
+  overflow: auto; /* This enables scrolling when content overflows */
+  padding-top: 0;
+  margin: 0px; 
+  margin-right: 60px;
+}
+
+.non-scrollable-container {
+  width: auto; /* Adjust the width as per your requirement */
+  padding-top: 0;
+  margin: 0px; 
+  margin-left: 40px;
+}
+
+.scrollable-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.scrollable-table thead {
+  position: sticky;
+  top: 0;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+}
+
+#wrapper {
+  display: flex;
+  border-radius: 5px;
+  padding: 20px; 
+}
+
+.container {
+  width: 50%;
+  display: inline-block;
+  border-radius: 0%;
+  padding: 0;
+}
+
+#left-container {
+  border-right: 1px solid #7a7a7a;
+}
+
+.container div {
+  border-radius: 0%;
+  margin-bottom: 40px;
+  padding-top: 0px;
+  padding-right: 20px; 
+  padding-bottom: 0px;
+}
+
+#content3 {
+  margin-bottom: 0px;
+}

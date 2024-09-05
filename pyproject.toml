@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dor_mapping"
+version = "1.0.0"
+description = "Application to request new PINs for DOR parcels"
+readme = "README.md"
+authors = [
+    {name = "James Midkiff", email = "james.midkiff@phila.gov"}
+    ]
+dependencies = [
+    'flask'
+    ]

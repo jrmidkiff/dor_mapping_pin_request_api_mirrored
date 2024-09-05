@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div id="wrapper">
+    <div id="left-container" class="container">
+      <div id="content2" class="scrollable-table-container">
+        {% if missing_pin_results == [] %}
+          <h2>Good News!<br>No active parcels found without PINs</h2>
+        {% else %}
+        <h2>Active Parcels Missing PINs:</h2>
+        <h3>(use this application to fix)</h3>
+        <table class="scrollable-table">
+          <thead>
+            <tr>
+              {% for header in missing_pin_headers %}
+                {% if loop.index0 in [0,1] %}
+                  <th><em>{{header.name}}</em></th>
+                {% else %}
+                  <th>{{header.name}}</th>
+                {% endif %}
+              {% endfor %}
+            </tr>
+          </thead>
+          {% for result in missing_pin_results %}
+          <tbody>
+            <tr>
+              {% for item in result %}
+                {% if loop.index0 in [0,1] %}
+                  <td><strong>{{item}}</strong></td>
+                {% else %}
+                  <td>{{item}}</td>
+                {% endif %}
+              {% endfor %}
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+        <br><br>
+        {% endif %}
+      </div>
+      <div id="content3" class="scrollable-table-container">
+        {% if duplicate_pin_results == [] %}
+          <h2>Good News!<br>No duplicate PINs found for active parcels</h2>
+        {% else %}
+        <h2>Duplicate PINs in Active Parcels:</h2>
+        <h3>(remove PINs manually, then use this application to fix)</h3>
+        <table class="scrollable-table">
+          <thead>
+            <tr>
+              {% for header in duplicate_pin_headers %}
+                {% if loop.index == 1 %}
+                  <th><em>{{header.name}}</em></th>
+                {% else %}
+                  <th>{{header.name}}</th>
+                {% endif %}
+              {% endfor %}
+            </tr>
+          </thead>
+          {% for result in duplicate_pin_results %}
+          <tbody>
+            <tr>
+              {% for item in result %}
+                {% if loop.first %}
+                  <td><strong>{{item}}</strong></td>
+                {% else %}
+                  <td>{{item}}</td>
+                {% endif %}
+              {% endfor %}
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+        <br><br>
+        {% endif %}
+      </div>
+    </div>
+    <div id="right-container" class="container">
+        <div id="content4" class="non-scrollable-container"><h2>Request PIN for Existing Parcel</h2>
+          <h3>Connected to SDE Named Version "{{ g.named_version }}"</h3>
+          {% if error is not none %}
+            <i style="color:rgb(229, 50, 19)">{{ error }}</i>
+          {% endif %}
+          <p>Input the following fields (case/punctuation-sensitive; leave field(s) empty for blank values):</p>
+          <form method="post" id="record_form" name="record_submit">
+          <label for="addr_std">Addr_Std:</label><br>
+          <input type="text" id="addr_std" name="addr_std" class="record-text"><br>
+          <label for="mapreg">MapReg:</label><br>
+          <input type="text" id="mapreg" name="mapreg" class="record-text"><br>
+          <label for="parcel_type">Parcel Type:</label><br>
+          <select name="parcel_type" id="parcel_type">
+            <option value="city">City</option>
+            <option value="church">Church</option>
+            <option value="common area">Common Area</option>
+            <option value="easement">Easement</option>
+            <option value="federal">Federal</option>
+            <option value="highway">Highway</option>
+            <option value="park">Park</option>
+            <option value="private">Private</option>
+            <option value="rail">Rail</option>
+            <option value="roadway">Roadway</option>
+            <option value="school">School</option>
+            <option value="sidewalk">Sidewalk</option>
+            <option value="state">State</option>
+            <option value="stricken street">Stricken Street</option>
+          </select><br><br>
+          <input type="submit" id="record-button" value="Submit" formaction="{{ url_for('auth.record') }}">
+          <button type="submit" id="record-button" formaction="{{ url_for('auth.logout') }}">Logout</button>
+          </form>
+        </div>
+    </div>
+  </div>
+{% endblock %}
